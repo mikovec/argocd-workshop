@@ -2,5 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-kubernetes
+  labels:
+    app.kubernetes.io/name: hello-kubernetes
 data:
-  MESSSAGE: hello-kubernetes
+  MESSSAGE: Hello, Kubernetes!

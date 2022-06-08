@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dev-hello
+
+resources:
+  - ../base
+
+replicas:
+  - name: hello-kubernetes
+    count: 1
+
+configMapGenerator:
+  - name: hello-kubernetes
+    behavior: merge
+    literals:
+    - MESSAGE=Hello, Development!
+

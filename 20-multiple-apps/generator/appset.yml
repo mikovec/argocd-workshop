@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hello
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: production
+            short: prod
+          - name: testing
+            short: test
+          - name: devel
+            short: dev
+  template:
+    metadata:
+      name: '{{short}}-hello'
+    spec:
+      project: 'hello-world'
+      source:
+        repoURL: https://gitlab.com/argocd-workshop/deployments.git
+        targetRevision: main
+        path: 20-hello-world/env-{{name}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{short}}-hello'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
