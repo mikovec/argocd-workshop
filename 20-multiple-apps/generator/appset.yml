@@ -21,7 +21,7 @@ spec:
       source:
         repoURL: https://gitlab.com/argocd-workshop/deployments.git
         targetRevision: main
-        path: 20-hello-world/env-{{name}}
+        path: 20-multiple-apps/env-{{name}}
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{short}}-hello'
