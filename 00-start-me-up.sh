@@ -7,7 +7,7 @@ set -x
 : minikube start --memory=4096M --driver=virtualbox
 
 # Install
-kubectl create namespace argocd
+kubectl create namespace argocd || true
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 # Wait for application start
