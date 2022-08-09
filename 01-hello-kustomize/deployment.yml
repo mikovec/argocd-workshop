@@ -21,6 +21,11 @@ spec:
         image: paulbouwer/hello-kubernetes:1.10
         ports:
         - containerPort: 8080
+        startupProbe:
+          httpGet:
+            port: 8000
+            path: /
+          timeoutSeconds: 1
         env:
         - name: KUBERNETES_NAMESPACE
           valueFrom:
