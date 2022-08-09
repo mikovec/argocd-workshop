@@ -5,7 +5,7 @@ metadata:
   name: hello-kubernetes
   labels:
     app.kubernetes.io/name: hello-kubernetes
-
+    the-answer: 42
 spec:
   replicas: 3
   selector:
@@ -23,7 +23,7 @@ spec:
         - containerPort: 8080
         startupProbe:
           httpGet:
-            port: 8000
+            port: 8080
             path: /
           timeoutSeconds: 1
         env:
