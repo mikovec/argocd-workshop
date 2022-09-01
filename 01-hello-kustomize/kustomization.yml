@@ -8,5 +8,5 @@ resources:
 configMapGenerator:
   - name: hello-kubernetes
     literals:
-    - MESSSAGE=Hello!
+    - MESSAGE=Hello, Kubernetes!
 
