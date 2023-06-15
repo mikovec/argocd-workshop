@@ -8,7 +8,7 @@ resources:
 
 replicas:
   - name: hello-kubernetes
-    count: 1
+    count: 2
 
 configMapGenerator:
   - name: hello-kubernetes
